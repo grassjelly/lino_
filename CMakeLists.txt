@@ -41,6 +41,8 @@ add_executable (${BINNAME2} ${SRCS2})
 target_link_libraries(${BINNAME2} ${catkin_LIBRARIES})
 add_dependencies(${BINNAME2} ${PROJECT_NAME}_gencfg)
 
+# Ensure message headers are generated
+add_dependencies(lino_pid lino_msgs_generate_messages_cpp)
 
 install(DIRECTORY include/${PROJECT_NAME}/
     DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
