@@ -36,11 +36,10 @@ set (SRCS2 ${SRCS2} src/pid_listen.cpp)
 # Build the executable that will be used to run this node.
 add_executable (${BINNAME1} ${SRCS1})
 target_link_libraries(${BINNAME1} ${catkin_LIBRARIES})
-add_dependencies(${BINNAME1} ${PROJECT_NAME}_gencfg)
+add_dependencies(${BINNAME1} ${PROJECT_NAME}_gencfg lino_msgs_generate_messages_cpp)
 add_executable (${BINNAME2} ${SRCS2})
 target_link_libraries(${BINNAME2} ${catkin_LIBRARIES})
-add_dependencies(${BINNAME2} ${PROJECT_NAME}_gencfg)
-
+add_dependencies(${BINNAME2} ${PROJECT_NAME}_gencfg lino_msgs_generate_messages_cpp)
 
 install(DIRECTORY include/${PROJECT_NAME}/
     DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
